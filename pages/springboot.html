@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Spring boot Example</title>
+    <title>Bootstrap Example</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
@@ -13,38 +13,34 @@
   </head>
   <body>
     <div class="container">
-      <h2>Spring Boot Examples</h2>
-      <div class="panel-group">
-        <div class="panel panel-default">
-          <div class="panel-heading">Spring boot Basic Example</div>
-          <div class="panel-body">spring boot basic example</div>
-        </div>
-
-        <div class="panel panel-default">
-          <div class="panel-heading">Spring boot Basic Example</div>
-          <div class="panel-body">spring boot basic example</div>
-        </div>
-
-        <div class="panel panel-default">
-          <div class="panel-heading">Spring boot Basic Example</div>
-          <div class="panel-body">spring boot basic example</div>
-        </div>
-
-        <div class="panel panel-default">
-          <div class="panel-heading">Spring boot Basic Example</div>
-          <div class="panel-body">spring boot basic example</div>
-        </div>
-
-        <div class="panel panel-default">
-          <div class="panel-heading">Spring boot Basic Example</div>
-          <div class="panel-body">spring boot basic example</div>
-        </div>
-
-        <div class="panel panel-default">
-          <div class="panel-heading">Spring boot Basic Example</div>
-          <div class="panel-body">spring boot basic example</div>
-        </div>
-      </div>
+      <h2>Filterable List</h2>
+      <p>
+        Type something in the input field to search the list for specific items:
+      </p>
+      <input
+        class="form-control"
+        id="myInput"
+        type="text"
+        placeholder="Search.."
+      />
+      <br />
+      <ul class="list-group" id="myList">
+        <li class="list-group-item">Spring boot Basic Example 1</li>
+        <li class="list-group-item">Spring boot Basic Example 2</li>
+        <li class="list-group-item">Spring boot Basic Example 3</li>
+        <li class="list-group-item">Fourth adarsh kumar singh</li>
+      </ul>
     </div>
+
+    <script>
+      $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+          var value = $(this).val().toLowerCase();
+          $("#myList li").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+          });
+        });
+      });
+    </script>
   </body>
 </html>
